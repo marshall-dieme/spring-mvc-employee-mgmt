@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: block;
+    background: #f2f2f2;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 100px;
+    box-shadow: 1px 6px 22px rgba(0, 0, 0, .15);
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar .logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .logo a {
+    color: #000046;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 150px);
+    position: relative;
+}
+
+.navbar .nav-links .links {
+    display: flex;
+    height: 100%;
+    width: auto;
+}
+
+.navbar .nav-links .links .link {
+    font-size: 18px;
+    display: flex;
+    padding: 0 10px;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+.navbar .nav-links .links .link:hover,
+.navbar .nav-links .links .link.active {
+    width: auto;
+    height: 60px;
+    background: #1c91bb;
+
+}
+
+
+.navbar .nav-links .links .link a {
+    color: #000046;
+    width: auto;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar .nav-links .links .link:hover a,
+.navbar .nav-links .links .link.active a {
+    color: #fff;
+}
+
+.navbar .nav-links .logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .nav-links .logout span {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.navbar .nav-links .logout .btn-logout {
+    padding: 10px 15px;
+    border: 1px solid #b60006;
+    border-radius: 10px;
+    color: #b60006;
+    transition: .3s;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.navbar .nav-links .logout .btn-logout:hover {
+    background: #b60006;
+    color: #fff;
+}
+
+.content {
+    height: calc(100vh - 60px);
+    padding: 50px 150px;
+    position: relative;
+}
+
+.content.form-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .page-title {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 50px;
+}
+
+.content .page-title h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+    position: relative;
+}
+
+.content .page-title h2::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30%;
+    height: 5px;
+    background: #000046;
+    border-radius: 5px;
+}
+
+.content .page-title h2::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    left: 0;
+    bottom: -16px;
+    height: 5px;
+    background: #000046;
+    border-radius: 5px;
+}
+
+.content .content-table {
+    position: relative;
+    padding: 5px 10px;
+    height: auto;
+}
+
+.content .content-table .create-btn {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 15px;
+}
+.content .content-table .create-btn button{
+    padding: 10px 15px;
+    border: none;
+    background: #1c91bb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.content .content-table .create-btn button:hover,
+.content .content-table .table-data tbody tr a:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+}
+
+.content .content-table .create-btn button a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.content .content-table .table-data {
+    width: 100%;
+    position: absolute;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    border-collapse: collapse;
+}
+.content .content-table .table-data th {
+    font-weight: 700;
+    font-size: 18px;
+    border: none;
+    border-spacing: 0;
+}
+
+.content .content-table .table-data thead {
+    background: #000046;
+    color: #fff;
+    width: auto;
+    height: 35px;
+    margin: 8px 0;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.content .content-table .table-data td {
+    text-align: center;
+    font-size: 16px;
+}
+
+.content .content-table .table-data tbody tr {
+    height: 50px;
+    transition: .5s;
+    margin: 5px;
+}
+
+.content .content-table .table-data tbody tr:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, .50);
+}
+
+.content .content-table .table-data tbody tr a {
+    padding: 5px 10px;
+    color: #fff;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+
+.content .content-table .table-data tbody tr a:nth-child(1) {
+    background: green;
+}
+
+.content .content-table .table-data tbody tr a:nth-child(2) {
+    color: #000046;
+    background: #e4dd0b;
+}
+
+.content .content-table .table-data tbody tr a:nth-child(3) {
+    background: crimson;
+}
+
+.content .dept-info {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content form {
+    width: 80%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 10px;
+}
+
+.content form .field,
+.content form .radio-div{
+    position: relative;
+    height: 72px;
+    padding: 16px 0 8px 0;
+    width: 450px;
+}
+
+.content form .radio-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.content form .field::after,
+.content form .field::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #808080;
+    bottom: 6px;
+    left: 0;
+}
+
+.content form .field::after {
+    background: #1c91bb;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.content form .field.is-focused::after {
+    transform: scaleX(1);
+}
+
+.content form .field .field-label {
+    color: #808080;
+    line-height: 16px;
+    font-size: 16px;
+    display: block;
+    margin: 0;
+    transform: translateY(24px);
+    position: relative;
+    transition: transform .3s, font-size .3s;
+}
+
+.content form .field .field-input {
+    position: relative;
+    background: transparent;
+    height: 32px;
+    width: 100%;
+    line-height: 16px;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    -webkit-appearance: none;
+}
+.content form .field.has-label .field-label,
+.content form .field.is-focused .field-label {
+    transform: translateY(0px);
+    font-size: 12px;
+}
+
+.content form .field.is-focused .field-label {
+    color: #1c91bb;
+}
+
+
+
+
+
