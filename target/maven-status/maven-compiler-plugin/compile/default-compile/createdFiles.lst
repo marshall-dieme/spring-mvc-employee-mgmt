@@ -9,5 +9,5 @@ com/saraya/exception/HandleException.class
 com/saraya/security/SecurityConfig.class
 com/saraya/services/DepartmentService.class
 com/saraya/model/Department.class
-com/saraya/services/FileUploadService.class
 com/saraya/controller/DepartmentController.class
+com/saraya/services/FileUploadService.class

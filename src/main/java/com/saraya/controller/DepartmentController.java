@@ -18,7 +18,7 @@ public class DepartmentController {
     public String deptList(ModelMap model) {
         model.addAttribute("departments", service.getDepartments());
         model.put("username", loginService.getLoggedInUsername());
-        return "list";
+        return "dept/list";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -36,18 +36,18 @@ public class DepartmentController {
     public String getDepartment(@PathVariable("id") String id
             , ModelMap model) {
         model.addAttribute("dept", service.getDepartment(id));
-        return "detail";
+        return "dept/detail";
     }
 
     @RequestMapping("/new")
     public String create() {
-        return "new";
+        return "dept/new";
     }
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable String id, ModelMap model) {
         model.put("dept", service.getDepartment(id));
-        return "new";
+        return "dept/new";
     }
 
     @RequestMapping("/delete/{id}")

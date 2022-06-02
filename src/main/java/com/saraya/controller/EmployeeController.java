@@ -19,19 +19,16 @@ public class EmployeeController {
     @RequestMapping
     public String deptList(ModelMap model) {
         model.addAttribute("employees", service.getemployees());
-        return "list";
+        return "emp/list";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     //Add the @Valid annotation...it will check for validation annotations before saving the object
     public String create(@ModelAttribute("employeeDto") @Valid EmployeeDto dto,
                          BindingResult result){
-        // All the errors in the validation process will be kept in the BindingResult object
-        //When errors occur...we have to handle it by loading the form page
-        //We have the hasErrors() methods to check if there is any error in the validation process
         if (result.hasErrors()){
             //Here I only load the form page
-            return "new";
+            return "emp/new";
         }
         service.createEmployee(dto);
         return "redirect:/employees";
@@ -41,21 +38,21 @@ public class EmployeeController {
     public String getEmployee(@PathVariable("id") String id
             , ModelMap model) {
         model.addAttribute("employee", service.getEmployee(id));
-        return "empDetail";
+        return "emp/detail";
     }
 
     @RequestMapping("/new")
     public String create(ModelMap model) {
         model.put("departments", serviceDept.getDepartments());
         model.put("employeeDto", new EmployeeDto());
-        return "new";
+        return "emp/new";
     }
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable String id, ModelMap model) {
         model.put("employee", service.getEmployee(id));
         model.put("departments", serviceDept.getDepartments());
-        return "new";
+        return "emp/new";
     }
 
     @RequestMapping("/delete/{id}")

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
 public class DepartmentService {
     private static List<Department> departments = new ArrayList<>();
     private static int id = 0;
