@@ -1,31 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page import="com.saraya.dto.EmployeeDto" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Saraya Employee Management</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/mystyle.css" />">
-    <link rel="stylesheet" href="<c:url value="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />">
-</head>
-<body>
-<div class="navbar">
-    <div class="logo">
-        <a href="/home">STS</a>
-    </div>
-    <div class="nav-links">
-        <ul class="links">
-            <li class="link"><a href="/home">Home</a></li>
-            <li class="link"><a href="/departments">Departments</a></li>
-            <li class="link active"><a href="/employees">Employees</a></li>
-        </ul>
-        <div class="logout">
-            welcome back,&nbsp;<span><c:out value="${username}" /></span>
-            <a href="/logout" class="btn-logout">Logout</a>
-        </div>
-    </div>
-</div>
+<%@include file="../header.jspf"%>
 <div class="">
     <%--Here we have our form binded--%>
     <form:form action="/employees" method="post" modelAttribute="employeeDto" enctype="multipart/form-data">
@@ -77,6 +51,4 @@
 
     })
 </script>
-
-</body>
-</html>
+<%@include file="../header.jspf"%>

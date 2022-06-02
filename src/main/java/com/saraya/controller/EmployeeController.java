@@ -1,8 +1,6 @@
 package com.saraya.controller;
 
 import com.saraya.dto.EmployeeDto;
-import com.saraya.model.Department;
-import com.saraya.model.Employee;
 import com.saraya.services.DepartmentService;
 import com.saraya.services.EmployeeService;
 import org.springframework.stereotype.Controller;
@@ -11,11 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/employees")
-@SessionAttributes("username")
 public class EmployeeController {
     EmployeeService service = new EmployeeService();
     DepartmentService serviceDept = new DepartmentService();
@@ -23,7 +19,7 @@ public class EmployeeController {
     @RequestMapping
     public String deptList(ModelMap model) {
         model.addAttribute("employees", service.getemployees());
-        return "empList";
+        return "list";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -35,7 +31,7 @@ public class EmployeeController {
         //We have the hasErrors() methods to check if there is any error in the validation process
         if (result.hasErrors()){
             //Here I only load the form page
-            return "empNew";
+            return "new";
         }
         service.createEmployee(dto);
         return "redirect:/employees";
@@ -52,14 +48,14 @@ public class EmployeeController {
     public String create(ModelMap model) {
         model.put("departments", serviceDept.getDepartments());
         model.put("employeeDto", new EmployeeDto());
-        return "empNew";
+        return "new";
     }
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable String id, ModelMap model) {
         model.put("employee", service.getEmployee(id));
         model.put("departments", serviceDept.getDepartments());
-        return "empNew";
+        return "new";
     }
 
     @RequestMapping("/delete/{id}")

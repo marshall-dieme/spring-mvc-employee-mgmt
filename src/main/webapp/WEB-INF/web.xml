@@ -21,10 +21,24 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--<jsp-config>
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <error-page>
+        <location>/WEB-INF/view/errors/errorJsp.jsp</location>
+    </error-page>
+
+    <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
             <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
         </jsp-property-group>
-    </jsp-config>-->
+    </jsp-config>
 </web-app>
