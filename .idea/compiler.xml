@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Emplyee-mgmt" />
+        <module name="spring-mvc-employee-mgmt" />
       </profile>
     </annotationProcessing>
   </component>

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("username")
 public class HomeController {
 
-    @RequestMapping(value = "/home")
+    //Change the url from "/home" to "/"
+    @RequestMapping(value = "/")
     public String home(ModelMap model){
         model.get("username");
         return "home";

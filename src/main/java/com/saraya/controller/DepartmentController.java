@@ -1,6 +1,7 @@
 package com.saraya.controller;
 
 import com.saraya.model.Department;
+import com.saraya.services.LoginService;
 import com.saraya.services.DepartmentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -8,14 +9,16 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/departments")
-@SessionAttributes("username")
 public class DepartmentController {
     DepartmentService service = new DepartmentService();
+    LoginService loginService = new LoginService();
+
 
     @RequestMapping
-    public String deptList(ModelMap model15) {
-        model15.addAttribute("departments", service.getDepartments());
-        return "deptList";
+    public String deptList(ModelMap model) {
+        model.addAttribute("departments", service.getDepartments());
+        model.put("username", loginService.getLoggedInUsername());
+        return "dept/list";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -33,18 +36,18 @@ public class DepartmentController {
     public String getDepartment(@PathVariable("id") String id
             , ModelMap model) {
         model.addAttribute("dept", service.getDepartment(id));
-        return "deptDetail";
+        return "dept/detail";
     }
 
     @RequestMapping("/new")
     public String create() {
-        return "deptNew";
+        return "dept/new";
     }
 
     @RequestMapping("/update/{id}")
     public String update(@PathVariable String id, ModelMap model) {
         model.put("dept", service.getDepartment(id));
-        return "deptNew";
+        return "dept/new";
     }
 
     @RequestMapping("/delete/{id}")
@@ -52,4 +55,8 @@ public class DepartmentController {
         service.deleteDepartment(id);
         return "redirect:/departments";
     }
+
+
+
+
 }

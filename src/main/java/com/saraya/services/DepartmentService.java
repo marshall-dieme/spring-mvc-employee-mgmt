@@ -1,6 +1,7 @@
 package com.saraya.services;
 
 import com.saraya.model.Department;
+import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.util.ArrayList;

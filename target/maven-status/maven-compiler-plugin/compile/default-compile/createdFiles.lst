@@ -2,8 +2,11 @@ com/saraya/model/Employee.class
 com/saraya/controller/HomeController.class
 com/saraya/dto/EmployeeDto.class
 com/saraya/services/EmployeeService.class
+com/saraya/controller/LogoutController.class
 com/saraya/controller/EmployeeController.class
-com/saraya/controller/LoginController.class
+com/saraya/services/LoginService.class
+com/saraya/exception/HandleException.class
+com/saraya/security/SecurityConfig.class
 com/saraya/services/DepartmentService.class
 com/saraya/model/Department.class
 com/saraya/controller/DepartmentController.class
